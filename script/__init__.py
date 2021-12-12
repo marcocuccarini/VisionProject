@@ -20,100 +20,89 @@ class BagofWord():
 
 	#def __init__(self):
     
-    def load_images_from_folder(self, folder):
-	    images = {}
-	    for filename in os.listdir(folder):
-	        category = []
-	        path = folder + "/" + filename
-	        for cat in os.listdir(path):
-	            img = cv2.imread(path + "/" + cat,0)
-	            #img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-	            if img is not None:
-	                category.append(img)
-	        images[filename] = category
-	    return images
+		def load_images_from_folder(self, folder):
+		    images = {}
+		    for filename in os.listdir(folder):
+		        category = []
+		        path = folder + "/" + filename
+		        for cat in os.listdir(path):
+		            img = cv2.imread(path + "/" + cat,0)
+		            #img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+		            if img is not None:
+		                category.append(img)
+		        images[filename] = category
+		    return images
 
 
-    def sift_features(self, images):
-	    sift_vectors = {}
-	    descriptor_list = []
-	    sift = cv2.SIFT_create()
-	    for key,value in images.items():
-	        features = []
-	        for img in value:
-	            kp, des = sift.detectAndCompute(img,None)
-	           
-	            
-	            descriptor_list.extend(des)
-	            features.append(des)
-	        sift_vectors[key] = features
-	    return [descriptor_list, sift_vectors]
+		def sift_features(self, images):
+			    sift_vectors = {}
+			    descriptor_list = []
+			    sift = cv2.SIFT_create()
+			    for key,value in images.items():
+			        features = []
+			        for img in value:
+			            kp, des = sift.detectAndCompute(img,None)
+			           
+			            
+			            descriptor_list.extend(des)
+			            features.append(des)
+			        sift_vectors[key] = features
+			    return [descriptor_list, sift_vectors]
 
 
-    def kmeans(self, k, descriptor_list):
-	    kmeans = KMeans(n_clusters = k, n_init=10)
-	    kmeans.fit(descriptor_list)
-	    visual_words = kmeans.cluster_centers_ 
-	    return visual_words
+		def kmeans(self, k, descriptor_list):
+			    kmeans = KMeans(n_clusters = k, n_init=10)
+			    kmeans.fit(descriptor_list)
+			    visual_words = kmeans.cluster_centers_ 
+			    return visual_words
+
+		def image_class(self, all_bovw, centers):
+			    dict_feature = {}
+			    for key,value in all_bovw.items():
+			        category = []
+			        for img in value:
+			            histogram = np.zeros(len(centers))
+			            for each_feature in img:
+			                ind = find_index(each_feature, centers)
+			                histogram[ind] += 1
+			            category.append(histogram)
+			        dict_feature[key] = category
+			    return dict_feature
 
 
-	
-
-
-
-
-	
-
-
-
-
-	def image_class(self, all_bovw, centers):
-	    dict_feature = {}
-	    for key,value in all_bovw.items():
-	        category = []
-	        for img in value:
-	            histogram = np.zeros(len(centers))
-	            for each_feature in img:
-	                ind = find_index(each_feature, centers)
-	                histogram[ind] += 1
-	            category.append(histogram)
-	        dict_feature[key] = category
-	    return dict_feature
-
-
-	def knn(self, images, tests):
-	    num_test = 0
-	    correct_predict = 0
-	    class_based = {}
-	    
-	    for test_key, test_val in tests.items():
-	        class_based[test_key] = [0, 0] # [correct, all]
-	        for tst in test_val:
-	            predict_start = 0
-	            #print(test_key)
-	            minimum = 0
-	            key = "a" #predicted
-	            for train_key, train_val in images.items():
-	                for train in train_val:
-	                    if(predict_start == 0):
-	                        minimum = distance.euclidean(tst, train)
-	                        #minimum = L1_dist(tst,train)
-	                        key = train_key
-	                        predict_start += 1
-	                    else:
-	                        dist = distance.euclidean(tst, train)
-	                        #dist = L1_dist(tst,train)
-	                        if(dist < minimum):
-	                            minimum = dist
-	                            key = train_key
-	            
-	            if(test_key == key):
-	                correct_predict += 1
-	                class_based[test_key][0] += 1
-	            num_test += 1
-	            class_based[test_key][1] += 1
-	            #print(minimum)
-	    return [num_test, correct_predict, class_based]
+		def knn(self, images, tests):
+		    num_test = 0
+		    correct_predict = 0
+		    class_based = {}
+		    
+		    for test_key, test_val in tests.items():
+		        class_based[test_key] = [0, 0] # [correct, all]
+		        for tst in test_val:
+		            predict_start = 0
+		            #print(test_key)
+		            minimum = 0
+		            key = "a" #predicted
+		            for train_key, train_val in images.items():
+		                for train in train_val:
+		                    if(predict_start == 0):
+		                        minimum = distance.euclidean(tst, train)
+		                        #minimum = L1_dist(tst,train)
+		                        key = train_key
+		                        predict_start += 1
+		                    else:
+		                        dist = distance.euclidean(tst, train)
+		                        #dist = L1_dist(tst,train)
+		                        if(dist < minimum):
+		                            minimum = dist
+		                            key = train_key
+		            
+		            if(test_key == key):
+		                correct_predict += 1
+		                class_based[test_key][0] += 1
+		            num_test += 1
+		            class_based[test_key][1] += 1
+		            #print(minimum)
+		    return [num_test, correct_predict, class_based]
 
 
 	 
