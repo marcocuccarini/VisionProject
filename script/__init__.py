@@ -57,7 +57,6 @@ class BagofWord():
 	    return visual_words
 
 
-
 	def find_index(self, image, center):
 	    count = 0
 	    ind = 0
@@ -72,6 +71,9 @@ class BagofWord():
 	                ind = i
 	                count = dist
 	    return ind
+
+
+
 
 	def image_class(self, all_bovw, centers):
 	    dict_feature = {}
