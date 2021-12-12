@@ -57,20 +57,12 @@ class BagofWord():
 	    return visual_words
 
 
-	def find_index(self, image, center):
-	    count = 0
-	    ind = 0
-	    for i in range(len(center)):
-	        if(i == 0):
-	           count = distance.euclidean(image, center[i]) 
-	           #count = L1_dist(image, center[i])
-	        else:
-	            dist = distance.euclidean(image, center[i]) 
-	            #dist = L1_dist(image, center[i])
-	            if(dist < count):
-	                ind = i
-	                count = dist
-	    return ind
+	
+
+
+
+
+	
 
 
 
