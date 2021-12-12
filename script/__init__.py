@@ -56,6 +56,21 @@ class BagofWord():
 			    visual_words = kmeans.cluster_centers_ 
 			    return visual_words
 
+		def find_index(image, center):
+				count = 0
+				ind = 0
+				for i in range(len(center)):
+						if(i == 0):
+								count = distance.euclidean(image, center[i]) 
+	           
+						else:
+								dist = distance.euclidean(image, center[i]) 
+	            #dist = L1_dist(image, center[i])
+								if(dist < count):
+										nd = i
+										count = dist
+				return ind
+
 		def image_class(self, all_bovw, centers):
 			    dict_feature = {}
 			    for key,value in all_bovw.items():
@@ -103,6 +118,14 @@ class BagofWord():
 		            class_based[test_key][1] += 1
 		            #print(minimum)
 		    return [num_test, correct_predict, class_based]
+
+		def accuracy(results):
+				print("Average accuracy: %" + str(avg_accuracy))
+				print("\nClass based accuracies: \n")
+				for key,value in results[2].items():
+						acc = (value[0] / value[1])
+				print(key + " : %" + str(acc))
+
 
 
 	 
