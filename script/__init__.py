@@ -78,7 +78,7 @@ class BagofWord():
 			        for img in value:
 			            histogram = np.zeros(len(centers))
 			            for each_feature in img:
-			                ind = find_index(each_feature, centers)
+			                ind = self.find_index(each_feature, centers)
 			                histogram[ind] += 1
 			            category.append(histogram)
 			        dict_feature[key] = category
