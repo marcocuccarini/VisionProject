@@ -17,11 +17,11 @@ from scipy.spatial import distance
 from sklearn.cluster import KMeans
 
 
-class graph:
+class graph():
 	def __init__(self,gdict=None):
-    	if gdict is None:
-    		gdict = {}
-    	self.gdict = gdict
+		if gdict is None:
+			gdict = {}
+		self.gdict = gdict
 
 	def edges(self):
 		return self.findedges()
