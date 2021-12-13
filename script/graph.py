@@ -28,20 +28,19 @@ class graph():
 
 	def AddEdge(self, edge):
 		edge = set(edge)
-      	(vrtx1, vrtx2) = tuple(edge)
-      		if vrtx1 in self.gdict:
-         		self.gdict[vrtx1].append(vrtx2)
-      		else:
-         		self.gdict[vrtx1] = [vrtx2]
-# List the edge names
-   def findedges(self):
-      	edgename = []
-      	for vrtx in self.gdict:
-         	for nxtvrtx in self.gdict[vrtx]:
-            	if {nxtvrtx, vrtx} not in edgename:
-               		edgename.append({vrtx, nxtvrtx})
-        return edgename
-# Create the dictionary with graph elements
+		(vrtx1, vrtx2) = tuple(edge)
+		if vrtx1 in self.gdict:
+			self.gdict[vrtx1].append(vrtx2)
+		else:
+			self.gdict[vrtx1] = [vrtx2]
+
+	def findedges(self):
+		edgename = []
+		for vrtx in self.gdict:
+			for nxtvrtx in self.gdict[vrtx]:
+				if {nxtvrtx, vrtx} not in edgename:
+					edgename.append({vrtx, nxtvrtx})
+		return edgename
 
 
 
