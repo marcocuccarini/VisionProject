@@ -111,6 +111,9 @@ class BagofWord():
 		                        if(dist < minimum):
 		                            minimum = dist
 		                            key = train_key
+
+		            print(key)
+		            print(test_key)
 		            
 		            if(test_key == key):
 		                correct_predict += 1
