@@ -20,16 +20,16 @@ from sklearn.cluster import KMeans
 
 class graph():
 
-	def findedges(self,start, end, path =[]):
+	def findedges1(self,start, end, path =[]):
 		path = path + [start]
 		if start == end:
 			return path
 		for node in self.gdict:
 			if node not in path:
 				newpath = find_shortest_path(self, node, end, path)
-					if newpath:
-						if not shortest or len(newpath) < len(shortest):
-							shortest = newpath
+				if newpath:
+					if not shortest or len(newpath) < len(shortest):
+						shortest = newpath
 
 			
 		return edgename
