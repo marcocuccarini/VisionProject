@@ -56,7 +56,7 @@ class BagofWord():
 			    visual_words = kmeans.cluster_centers_ 
 			    return visual_words
 
-		def find_index(image, center):
+		def find_index(self, image, center):
 				count = 0
 				ind = 0
 				for i in range(len(center)):
