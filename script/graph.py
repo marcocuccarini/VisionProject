@@ -26,7 +26,7 @@ class graph():
 			return path
 		for node in self.gdict:
 			if node not in path:
-				newpath = find_shortest_path(self, node, end, path)
+				newpath = findedges1(self, node, end, path)
 				if newpath:
 					if not shortest or len(newpath) < len(shortest):
 						shortest = newpath
