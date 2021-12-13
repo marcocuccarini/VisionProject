@@ -90,6 +90,8 @@ class BagofWord():
 		    num_test = 0
 		    correct_predict = 0
 		    class_based = {}
+		    listKey=[]
+		    listTestKey=[]
 		    
 		    for test_key, test_val in tests.items():
 		        class_based[test_key] = [0, 0] # [correct, all]
@@ -112,23 +114,14 @@ class BagofWord():
 		                            minimum = dist
 		                            key = train_key
 
-		            print(key)
-		            print(test_key)
 		            
-		            if(test_key == key):
-		                correct_predict += 1
-		                class_based[test_key][0] += 1
-		            num_test += 1
-		            class_based[test_key][1] += 1
-		            #print(minimum)
-		    return [num_test, correct_predict, class_based]
+		            listKey.append(key)
+		            listTestKey.append(test_key)
+		            
+		            
+		    return [listKey,listTestKey]
 
-		def accuracy(results):
-				print("Average accuracy: %" + str(avg_accuracy))
-				print("\nClass based accuracies: \n")
-				for key,value in results[2].items():
-						acc = (value[0] / value[1])
-				print(key + " : %" + str(acc))
+		
 
 
 
