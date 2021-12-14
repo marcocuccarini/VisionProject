@@ -23,7 +23,7 @@ def dfs(start, end):
     # questo significa che non è presente, quindi restituisco false
     return False
 
-def dfs1(adj_list, start, target, path, visited = set()):
+def dfs1(start, target, path, visited = set()):
     path.append(start)
     visited.add(start)
     if start == target:
