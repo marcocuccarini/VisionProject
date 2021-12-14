@@ -24,7 +24,7 @@ def dfs(start, end):
     return False
 
 def dfs1(start, target, path, visited = set()):
-    path.append(start)
+    path.append(start.get_id())
     visited.add(start)
     if start == target:
         return path
