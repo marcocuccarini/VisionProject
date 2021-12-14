@@ -30,7 +30,7 @@ def dfs1(start, target, path, visited = set()):
         return path
     for neighbour in start.get_connections():
         if neighbour not in visited:
-            result = dfs(neighbour, target, path, visited)
+            result = dfs1(neighbour, target, path, visited)
             if result is not None:
                 return result
         path.pop()
