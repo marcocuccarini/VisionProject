@@ -24,6 +24,7 @@ class graph():
 		path = path + [start]
 		if start == end:
 			return path
+		shortest=None
 		for node in self.gdict:
 			if node not in path:
 				newpath = self.findedges1(node, end, path)
@@ -32,7 +33,7 @@ class graph():
 						shortest = newpath
 
 			
-		return edgename
+		return shortest
 
 
 
