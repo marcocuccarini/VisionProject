@@ -22,7 +22,7 @@ class input_data():
 
 	def getCronology(self):
 		with open('/content/drive/MyDrive/dataset2/arcNames25.txt') as f:
-		lines = f.readlines()
+			lines = f.readlines()
 		dfCron = pd.DataFrame(columns=((lines[0].replace("\n",""))).split(','))
 		lines.pop(0)
 		for i in lines:
