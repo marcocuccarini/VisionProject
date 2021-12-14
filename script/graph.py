@@ -32,7 +32,7 @@ class graph():
 					if not shortest or len(newpath) < len(shortest):
 						shortest = newpath
 
-			
+		print(self.gdict)
 		return shortest
 
 
