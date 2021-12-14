@@ -21,17 +21,19 @@ from sklearn.cluster import KMeans
 class graph():
 
 	def findedges1(self,start, end, path =[]):
-		print(self.gdict)
 		path = path + [start]
+		print(path)
 		if start == end:
 			return path
 		shortest=None
 		for node in self.gdict:
 			if node not in path:
 				newpath = self.findedges1(node, end, path)
+
 				if newpath:
 					if not shortest or len(newpath) < len(shortest):
 						shortest = newpath
+						print(shortest)
 
 		
 		return shortest
