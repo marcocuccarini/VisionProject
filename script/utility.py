@@ -1,9 +1,4 @@
-
-
-from .graph1 import *
-
-
-
+from .graph import *
 
 # dfs search modificato
 def dfs(start, end):
