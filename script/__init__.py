@@ -17,6 +17,8 @@ from scipy.spatial import distance
 from sklearn.cluster import KMeans
 from .graph import *
 from .input_data import *
+from .utility import *
+
 
 class BagofWord():
 

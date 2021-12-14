@@ -20,7 +20,7 @@ from sklearn.cluster import KMeans
 
 class graph():
 
-	def findedges1(self,start, end, path =[]):
+	def findedges1(self, start, end, path =[]):
 		path = path + [start]
 		print(path)
 		if start == end:
