@@ -1,10 +1,6 @@
-"""
-Giulia Santoiemma 2004775
-Marco Cuccarini 2021834
-Elia Binaglia 2029213
-"""
 
-from graph1 import *
+
+from Graph import *
 
 
 
