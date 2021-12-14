@@ -16,6 +16,7 @@ from scipy import ndimage
 from scipy.spatial import distance
 from sklearn.cluster import KMeans
 from .graph import *
+from .input_data import *
 
 class BagofWord():
 
