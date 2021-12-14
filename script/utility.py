@@ -1,7 +1,6 @@
 
 
-from Graph import *
-
+from .graph1 import *
 
 
 
