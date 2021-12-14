@@ -33,5 +33,5 @@ def dfs1(start, target, path, visited = set()):
             result = dfs1(neighbour, target, path, visited)
             if result is not None:
                 return result
-        path.pop()
+            path.pop()
     return None
