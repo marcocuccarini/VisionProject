@@ -21,6 +21,7 @@ from sklearn.cluster import KMeans
 class graph():
 
 	def findedges1(self,start, end, path =[]):
+		print(self.gdict)
 		path = path + [start]
 		if start == end:
 			return path
@@ -32,7 +33,7 @@ class graph():
 					if not shortest or len(newpath) < len(shortest):
 						shortest = newpath
 
-		print(self.gdict)
+		
 		return shortest
 
 
