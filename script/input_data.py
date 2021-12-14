@@ -46,7 +46,7 @@ class input_data():
 
 	def getRelation(self,gdict=None):
 		with open('/content/drive/MyDrive/dataset2/arcRelationship25.txt') as f:
-		lines = f.readlines()
+			lines = f.readlines()
 		dfRel = pd.DataFrame(columns=['Ver1','Ver2','Rel'])
 		for i in lines:
 			line=i.split(',')
