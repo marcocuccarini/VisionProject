@@ -1,4 +1,11 @@
-
+import sys
+sys.path.append('/home/nbuser/library/')
+import numpy as np
+import cv2
+import os
+from scipy import ndimage
+from scipy.spatial import distance
+from sklearn.cluster import KMeans
 
 
 # La classe Vertex rappresenta i vertici di un grafo
