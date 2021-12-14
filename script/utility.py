@@ -22,3 +22,16 @@ def dfs(start, end):
     # nel caso che, finito il while, non ha trovato nessun vertice,
     # questo significa che non è presente, quindi restituisco false
     return False
+
+def dfs1(adj_list, start, target, path, visited = set()):
+    path.append(start)
+    visited.add(start)
+    if start == target:
+        return path
+    for neighbour in next_node.get_connections():
+        if neighbour not in visited:
+            result = dfs(adj_list, neighbour, target, path, visited)
+            if result is not None:
+                return result
+      path.pop()
+    return None
