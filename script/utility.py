@@ -4,7 +4,7 @@ Marco Cuccarini 2021834
 Elia Binaglia 2029213
 """
 
-from graph1 import *
+#from graph1 import *
 
 
 
