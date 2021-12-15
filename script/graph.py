@@ -75,7 +75,7 @@ class Graph:
 
     # Il metodo get_vertices ritorna i nomi di tutti i vertici nel grafo
     def get_vertices(self):
-        return self.vert_list
+        return self.vert_list.keys()
 
     # Il metodo __iter__ permette l’iterazione su tutti i vertici di un grafo dato.
     # Insieme, i due metodi get_vertices e __iter__,
