@@ -1,30 +1,10 @@
 from .graph import *
 
-# dfs search modificato
-def dfs(start, end):
-    visited = {}  # struttura contenete tutti i vertici visitati
-    to_visit = set()  # struttura contenente tutti i vertici da visitare
-    to_visit.add(start)
 
-    while to_visit:
-        # estraggo dalla lista il primo vertice
-        next_node = to_visit.pop()
-        # esploro i vertici adiacenti a next_node
-        for w in next_node.get_connections():
-            # se un vertice corrisponde alla fine significa che ho trovato il vertice che cercavo
-            if w == end:
-                return True
-            else:
-                if w not in visited:
-                    # aggiungo alla lista to_visit tutti i nodi adiacenti a next_node se non sono presenti in visited
-                    to_visit.add(w)
-            visited[next_node] = next_node
-    # nel caso che, finito il while, non ha trovato nessun vertice,
-    # questo significa che non è presente, quindi restituisco false
-    return False
 
 def dfs1(start, target, path, visited = set()):
-    path.append(start.get_id())
+    path.append(start)
+
     visited.add(start)
     if start == target:
         return path
@@ -35,3 +15,33 @@ def dfs1(start, target, path, visited = set()):
                 return result
             path.pop()
     return None
+
+def d(start,end):
+    sumW=0
+    res=df1(start, target, path)
+    for i in range(len(res)-1):
+            sumW+= res[i].get_weight(res[i+1])
+
+
+    return sumW
+
+
+def onealldfs(start, alltarget):
+
+    m=0
+    
+    for i in alltarget:
+        
+        a=dfs1(start, i, w, path=[])
+        
+        if(a>m):
+
+            index=i
+            
+            m=a
+
+    return (index,m)
+
+
+
+
