@@ -32,7 +32,7 @@ def onealldfs(start, alltarget):
     
     for i in alltarget:
         
-        a=dfs1(start, i, path=[])
+        a=d(start, i)
         
         if(a>m):
 
