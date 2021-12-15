@@ -7,13 +7,16 @@ def dfs1(start, target, path, visited = set()):
 
     visited.add(start)
     if start == target:
+    	visited = set()
         return path
     for neighbour in start.get_connections():
         if neighbour not in visited:
             result = dfs1(neighbour, target, path, visited)
             if result is not None:
+            	visited = set()
                 return result
             path.pop()
+    visited = set()
     return None
 
 def d(start,target):
