@@ -18,7 +18,7 @@ def dfs1(start, target, path, visited = set()):
 
 def d(start,end):
     sumW=0
-    res=df1(start, target, path)
+    res=dfs1(start, target, path)
     for i in range(len(res)-1):
             sumW+= res[i].get_weight(res[i+1])
 
