@@ -16,7 +16,7 @@ def dfs1(start, target, path, visited = set()):
             path.pop()
     return None
 
-def d(start,end):
+def d(start,target):
     sumW=0
     res=dfs1(start, target, path)
     for i in range(len(res)-1):
