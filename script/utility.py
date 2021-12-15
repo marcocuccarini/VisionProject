@@ -14,7 +14,7 @@ def dfs1(start, target, path, visited = set()):
             result = dfs1(neighbour, target, path, visited)
             if result is not None:
             	visited = set()
-                return result
+            	return result
             path.pop()
     visited = set()
     return None
@@ -25,8 +25,6 @@ def d(start,target):
     print(res)
     for i in range(len(res)-1):
             sumW+= res[i].get_weight(res[i+1])
-
-
     return sumW
 
 
