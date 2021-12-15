@@ -8,7 +8,7 @@ def dfs1(start, target, path, visited = set()):
     visited.add(start)
     if start == target:
     	visited = set()
-        return path
+    	return path
     for neighbour in start.get_connections():
         if neighbour not in visited:
             result = dfs1(neighbour, target, path, visited)
