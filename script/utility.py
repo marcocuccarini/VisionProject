@@ -20,6 +20,7 @@ def dfs1(start, target, path, visited = set()):
     return None
 
 def d(start,target):
+	visited = set()
     sumW=0
     res=dfs1(start, target, path=[])
     print(res)
