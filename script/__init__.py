@@ -10,6 +10,7 @@ from sklearn.cluster import KMeans
 from .graph import *
 from .input_data import *
 from .utility import *
+from .spatial_pyramid import *
 
 
 class BagofWord():
