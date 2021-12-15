@@ -1,12 +1,5 @@
 import sys
 sys.path.append('/home/nbuser/library/')
-import numpy as np
-import cv2
-import os
-from scipy import ndimage
-from scipy.spatial import distance
-from sklearn.cluster import KMeans
-
 
 # La classe Vertex rappresenta i vertici di un grafo
 class Vertex:
@@ -82,7 +75,7 @@ class Graph:
 
     # Il metodo get_vertices ritorna i nomi di tutti i vertici nel grafo
     def get_vertices(self):
-        return self.vert_list.keys()
+        return self.vert_list
 
     # Il metodo __iter__ permette l’iterazione su tutti i vertici di un grafo dato.
     # Insieme, i due metodi get_vertices e __iter__,
