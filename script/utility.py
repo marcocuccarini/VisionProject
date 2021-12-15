@@ -19,8 +19,7 @@ def dfs1(start, target, path, visited = set()):
 def d(start,target):
     sumW=0
     res=dfs1(start, target, path=[])
-    if (res==None):
-        return 0
+    print(res)
     for i in range(len(res)-1):
             sumW+= res[i].get_weight(res[i+1])
 
@@ -28,21 +27,7 @@ def d(start,target):
     return sumW
 
 
-def onealldfs(start, alltarget):
 
-    m=0
-    
-    for i in alltarget:
-        
-        a=d(start, i)
-        
-        if(a>m):
-
-            index=i
-            
-            m=a
-
-    return (index,m)
 
 
 
