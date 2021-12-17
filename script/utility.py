@@ -26,7 +26,6 @@ def d(start,target):
 	print(res)
 	for i in range(len(res)-1):
 		sumW+= res[i].get_weight(res[i+1])
-		print(sumW)
 	return sumW
 
 
