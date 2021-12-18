@@ -48,7 +48,6 @@ class BagofWord():
 			            descriptor_list.extend(des)
 			            features.append(des)
 					sift_vectors[key] = features
-
 				return [descriptor_list, sift_vectors]
 
         #cerca il cetroide e lo associa al cluster
