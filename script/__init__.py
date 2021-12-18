@@ -52,7 +52,7 @@ class BagofWord():
 
 
 
-			    textfile = open("/content/drive/MyDrive/dataset2/descriptor_list.csv", "w")
+			    '''textfile = open("/content/drive/MyDrive/dataset2/descriptor_list.csv", "w")
 
 			    i=""
 			    
@@ -70,12 +70,21 @@ class BagofWord():
 			    	for e in element:
 			    		i+=str(e)+","
 			    	textfile.write(i+"/n")
-			    textfile.close()
+			    textfile.close()'''
 
 			    return [descriptor_list, sift_vectors]
 
         #cerca il cetroide e lo associa al cluster
 		def kmeans(self, k, descriptor_list):
+
+				'''textfile = open("/content/drive/MyDrive/dataset2/descriptor_list.csv", "w")
+				csvreader = csv.reader(textfile)
+				rows = []
+				for row in csvreader:
+					rows.append(row)
+				print(rows)
+				file.close()'''
+
 
 
 				#descriptor_list = loadtxt('/content/drive/MyDrive/dataset2/descriptor_list.csv', delimiter=',')
