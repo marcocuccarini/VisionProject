@@ -54,7 +54,6 @@ class BagofWord():
 
         #cerca il cetroide e lo associa al cluster
 		def kmeans(self, k, descriptor_list):
-			    
 
 
 				descriptor_list = loadtxt('/content/drive/MyDrive/dataset2/descriptor_list.csv', delimiter=',')
