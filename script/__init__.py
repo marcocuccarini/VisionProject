@@ -50,15 +50,7 @@ class BagofWord():
 					sift_vectors[key] = features
 
 
-				textfile = open("/content/drive/MyDrive/dataset2/descriptor_list.txt", "w")
-				for element in descriptor_list:
-					textfile.write(element + "\n")
-				textfile.close()
-
-				textfile = open("/content/drive/MyDrive/dataset2/sift_vectors.txt", "w")
-				for element in sift_vectors:
-					textfile.write(element + "\n")
-				textfile.close()
+				
 
 
 			    return [descriptor_list, sift_vectors]
