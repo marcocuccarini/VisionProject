@@ -48,9 +48,10 @@ class BagofWord():
 			            descriptor_list.extend(des)
 			            features.append(des)
 					sift_vectors[key] = features
-				with open("/content/drive/MyDrive/dataset2/sift_vectors.csv", "w") as f:
+				with open("out.csv", "w") as f:
 					wr = csv.writer(f)
-					wr.writerows(sift_vectors)
+					wr.writerows(descriptor_list)
+
 
 			    return [descriptor_list, sift_vectors]
 
