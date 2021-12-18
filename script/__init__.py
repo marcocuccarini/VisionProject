@@ -3,6 +3,8 @@ import sys
 sys.path.append('/home/nbuser/library/')
 import numpy as np
 from numpy import savetxt
+from numpy import asarray
+
 from numpy import loadtxt
 import cv2
 import os
