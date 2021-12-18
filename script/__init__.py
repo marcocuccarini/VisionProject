@@ -57,12 +57,10 @@ class BagofWord():
 
 
 				descriptor_list = loadtxt('/content/drive/MyDrive/dataset2/descriptor_list.csv', delimiter=',')
-
-
-			    kmeans = KMeans(n_clusters = k, n_init=10)
-			    kmeans.fit(descriptor_list)
-			    visual_words = kmeans.cluster_centers_ 
-			    return visual_words
+				kmeans = KMeans(n_clusters = k, n_init=10)
+				kmeans.fit(descriptor_list)
+				visual_words = kmeans.cluster_centers_ 
+				return visual_words
 
 		def find_index(self, image, center):
 				count = 0
