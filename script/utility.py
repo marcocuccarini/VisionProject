@@ -25,7 +25,6 @@ def d(start,target):
 	res=dfs1(start, target, path=[])
 	for i in range(len(res)-1):
 		sumW+= res[i].get_weight(res[i+1])
-	print(sumW)
 	return sumW
 
 
