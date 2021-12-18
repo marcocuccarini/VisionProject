@@ -48,10 +48,11 @@ class BagofWord():
 			            descriptor_list.extend(des)
 			            features.append(des)
 			        sift_vectors[key] = features
-			    '''descriptor_list = asarray(descriptor_list)
-			    sift_vectors = asarray(sift_vectors)
-			    savetxt('/content/drive/MyDrive/dataset2/descriptor_list.csv', descriptor_list, delimiter=',')
-			    savetxt('/content/drive/MyDrive/dataset2/sift_vectors.csv', sift_vectors, delimiter=',')'''
+			    with open('GFG', 'w') as f:
+      
+    				write = csv.writer(f)
+    				write.writerow(fields)
+    				write.writerows(rows)
 			    return [descriptor_list, sift_vectors]
 
         #cerca il cetroide e lo associa al cluster
