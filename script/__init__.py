@@ -57,6 +57,11 @@ class BagofWord():
 			    	textfile.write(element+"/n")
 			    textfile.close()
 
+			    textfile = open("/content/drive/MyDrive/dataset2/descriptor_list.csv", "w")
+			    for element in descriptor_list:
+			    	textfile.write(element+"/n")
+			    textfile.close()
+
 			    return [descriptor_list, sift_vectors]
 
         #cerca il cetroide e lo associa al cluster
