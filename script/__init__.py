@@ -2,6 +2,8 @@
 import sys
 sys.path.append('/home/nbuser/library/')
 import numpy as np
+from numpy import savetxt
+from numpy import loadtxt
 import cv2
 import os
 from scipy import ndimage
@@ -30,7 +32,7 @@ class BagofWord():
 		        images[filename] = category
 		    return images
 
-
+		    #Provare grid e random
 		def sift_features(self, images):
 			    sift_vectors = {}
 			    descriptor_list = []
@@ -44,10 +46,23 @@ class BagofWord():
 			            descriptor_list.extend(des)
 			            features.append(des)
 			        sift_vectors[key] = features
-			    return [descriptor_list, sift_vectors]
+			    
+				# define data
+				descriptor_list = asarray(descriptor_list)
+				sift_vectors = asarray(sift_vectors)
+				# save to csv file
+				savetxt('/content/drive/MyDrive/dataset2/descriptor_list.csv', descriptor_list, delimiter=',')
+				savetxt('/content/drive/MyDrive/dataset2/sift_vectors.csv', sift_vectors, delimiter=',')
+			    #return [descriptor_list, sift_vectors]
 
-
+        #cerca il cetroide e lo associa al cluster
 		def kmeans(self, k, descriptor_list):
+			    
+
+
+				descriptor_list = loadtxt('/content/drive/MyDrive/dataset2/descriptor_list.csv', delimiter=',')
+
+
 			    kmeans = KMeans(n_clusters = k, n_init=10)
 			    kmeans.fit(descriptor_list)
 			    visual_words = kmeans.cluster_centers_ 
