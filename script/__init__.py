@@ -50,18 +50,9 @@ class BagofWord():
 			        sift_vectors[key] = features
 
 
-
-
-			    textfile = open("/content/drive/MyDrive/dataset2/descriptor_list.csv", "w")
-			    for element in descriptor_list:
-			    	print(element)
-			    	textfile.write(element+"/n")
-			    textfile.close()
-
-			    textfile = open("/content/drive/MyDrive/dataset2/sift_vectors.csv", "w")
-			    for element in sift_vectors:
-			    	textfile.write(element+"/n")
-			    textfile.close()
+				with open("/content/drive/MyDrive/dataset2/sift_vectors.csv", "w") as f:
+					wr = csv.writer(f)
+					wr.writerows(sift_vectors)
 
 			    return [descriptor_list, sift_vectors]
 
