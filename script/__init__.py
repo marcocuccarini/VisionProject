@@ -47,7 +47,7 @@ class BagofWord():
 			            
 			            descriptor_list.extend(des)
 			            features.append(des)
-			        sift_vectors[key] = features
+					sift_vectors[key] = features
 
 
 				textfile = open("/content/drive/MyDrive/dataset2/descriptor_list.txt", "w")
