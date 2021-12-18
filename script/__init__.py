@@ -46,11 +46,8 @@ class BagofWord():
 			            descriptor_list.extend(des)
 			            features.append(des)
 			        sift_vectors[key] = features
-			    
-				# define data
 				descriptor_list = asarray(descriptor_list)
 				sift_vectors = asarray(sift_vectors)
-				# save to csv file
 				savetxt('/content/drive/MyDrive/dataset2/descriptor_list.csv', descriptor_list, delimiter=',')
 				savetxt('/content/drive/MyDrive/dataset2/sift_vectors.csv', sift_vectors, delimiter=',')
 			    #return [descriptor_list, sift_vectors]
