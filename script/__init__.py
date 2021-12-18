@@ -52,7 +52,10 @@ class BagofWord():
 
 
 
-			    textfile = open("a_file.txt", "w")
+			    textfile = open("/content/drive/MyDrive/dataset2/descriptor_list.csv", "w")
+			    for element in descriptor_list:
+			    	textfile.write(element+"/n")
+			  	textfile.close()
 
 			    return [descriptor_list, sift_vectors]
 
