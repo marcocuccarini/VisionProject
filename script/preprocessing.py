@@ -1,5 +1,19 @@
 import sys
 sys.path.append('/home/nbuser/library/')
+import pandas as pd
+import copy
+import math
+from script import *
+from keras.preprocessing import image
+from keras.applications.vgg16 import VGG16
+from keras.applications.vgg16 import preprocess_input
+import numpy as np
+from sklearn.cluster import KMeans
+import os, shutil, glob, os.path
+from PIL import Image as pil_image
+from scipy.cluster.vq import vq
+from scipy.spatial import distance
+
 
 # La classe Vertex rappresenta i vertici di un grafo
 class Preprocessing:
@@ -12,7 +26,7 @@ class Preprocessing:
                 listImage.append(res)
             dictImage[j]=listImage
     
-    return dictImage
+        return dictImage
 
     def intraclass_variance(dictImage):
         
@@ -56,7 +70,7 @@ class Preprocessing:
 
         return dictIndex
 
-        
+
     def spliTestTrain(dictImages,dictIndex):
         test = {}
         images = {}
