@@ -17,7 +17,7 @@ from scipy.spatial import distance
 
 # La classe Vertex rappresenta i vertici di un grafo
 class Preprocessing:
-    def resize(setImages,h,w):
+    def resize(self,setImages,h,w):
         dictImage={}
         for j in setImages.keys():
             listImage=[]
@@ -28,7 +28,7 @@ class Preprocessing:
     
         return dictImage
 
-    def intraclass_variance(dictImage):
+    def intraclass_variance(self,dictImage):
         
         for j in dictImage.keys():
             mean1 = sum(dictImage[j])/len(dictImage[j])
@@ -37,7 +37,7 @@ class Preprocessing:
             intraclassVar[sum(sum(variance))/(len(variance)**2)]=j
         return intraclassVar
 
-    def cluster(dictImage,percent):
+    def cluster(self,dictImage,percent):
         dictCenter={}
         for j in dictImage.keys():
             listFlat=[]
@@ -52,7 +52,7 @@ class Preprocessing:
 
         return (dictCenter, dictLabel, dictFlat)
 
-    def ImageIndex(dictCenter,dictLabel,dictFlat):
+    def ImageIndex(self,dictCenter,dictLabel,dictFlat):
         dictIndex={}
         for j in setImages.keys():
             listIndex=[]
@@ -71,7 +71,7 @@ class Preprocessing:
         return dictIndex
 
 
-    def spliTestTrain(dictImages,dictIndex):
+    def spliTestTrain(self,dictImages,dictIndex):
         test = {}
         images = {}
         for j in dictImages.keys():
