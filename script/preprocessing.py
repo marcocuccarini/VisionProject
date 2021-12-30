@@ -46,16 +46,16 @@ class Preprocessing:
                 result = dictImage[j][i].flatten()
                 listFlat.append(result)
  
-            kmeans = KMeans(n_clusters=(int(len(setImages[j])/percent)), random_state=0).fit(listFlat)
+            kmeans = KMeans(n_clusters=(int(len(dictImages[j])/percent)), random_state=0).fit(listFlat)
             dictCenter[j]=kmeans.cluster_centers_
             dictLabel[j]= kmeans.labels_
             dictFlat[j]=listFlat
 
         return (dictCenter, dictLabel, dictFlat)
 
-    def ImageIndex(self,dictCenter,dictLabel,dictFlat):
+    def ImageIndex(self,dictImages,dictCenter,dictLabel,dictFlat):
         dictIndex={}
-        for j in setImages.keys():
+        for j in dictImages.keys():
             listIndex=[]
             for i in range(len(dictCenter[j])):
                 min=math.inf
