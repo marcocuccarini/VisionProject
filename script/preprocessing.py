@@ -18,23 +18,23 @@ from scipy.spatial import distance
 # La classe Vertex rappresenta i vertici di un grafo
 class Preprocessing:
     def resize(self,setImages,h,w):
-        dictImage={}
+        dictImages={}
         for j in setImages.keys():
             listImage=[]
             for i in range(len(setImages[j])):
                 res = cv2.resize(setImages[j][i], dsize=(h, w), interpolation=cv2.INTER_CUBIC)
                 listImage.append(res)
-            dictImage[j]=listImage
+            dictImages[j]=listImage
     
-        return dictImage
+        return dictImages
 
-    def intraclass_variance(self,dictImage):
+    def intraclass_variance(self,dictImages):
         
         intraclassVar={}
-        for j in dictImage.keys():
-            mean1 = sum(dictImage[j])/len(dictImage[j])
+        for j in dictImages.keys():
+            mean1 = sum(dictImages[j])/len(dictImages[j])
             #after i calculate 
-            variance = sum((dictImage[j] - mean1)**2)/(len(dictImage[j]) - 1);
+            variance = sum((dictImages[j] - mean1)**2)/(len(dictImages[j]) - 1);
             intraclassVar[sum(sum(variance))/(len(variance)**2)]=j
         return intraclassVar
 
