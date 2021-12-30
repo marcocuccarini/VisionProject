@@ -12,6 +12,7 @@ from scipy import ndimage
 from scipy.spatial import distance
 from sklearn.cluster import KMeans
 from .graph import *
+from .preprocessing import *
 from .input_data import *
 from .utility import *
 from .spatial_pyramid import *
@@ -23,15 +24,18 @@ class BagofWord():
     
 		def load_images_from_folder(self, folder):
 		    images = {}
+		    
 		    for filename in os.listdir(folder):
 		        category = []
 		        path = folder + "/" + filename
 		        for cat in os.listdir(path):
-		            img = cv2.imread(path + "/" + cat,0)
+		        	#load each image with a gray scale 
+		            img = cv2.imread(path + "/" + cat, 0)
 		            #img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 		            if img is not None:
 		                category.append(img)
 		        images[filename] = category
+		        
 		    return images
 
 		    #Provare grid e random
