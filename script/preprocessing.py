@@ -40,6 +40,8 @@ class Preprocessing:
 
     def cluster(self,dictImages,percent):
         dictCenter={}
+        dictLabel={}
+        dictFlat={}
         for j in dictImages.keys():
             listFlat=[]
             for i in range(len(dictImages[j])):
