@@ -30,6 +30,7 @@ class Preprocessing:
 
     def intraclass_variance(self,dictImage):
         
+        intraclassVar={}
         for j in dictImage.keys():
             mean1 = sum(dictImage[j])/len(dictImage[j])
             #after i calculate 
