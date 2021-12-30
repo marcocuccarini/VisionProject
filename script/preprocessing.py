@@ -38,12 +38,12 @@ class Preprocessing:
             intraclassVar[sum(sum(variance))/(len(variance)**2)]=j
         return intraclassVar
 
-    def cluster(self,dictImage,percent):
+    def cluster(self,dictImages,percent):
         dictCenter={}
-        for j in dictImage.keys():
+        for j in dictImages.keys():
             listFlat=[]
-            for i in range(len(dictImage[j])):
-                result = dictImage[j][i].flatten()
+            for i in range(len(dictImages[j])):
+                result = dictImages[j][i].flatten()
                 listFlat.append(result)
  
             kmeans = KMeans(n_clusters=(int(len(dictImages[j])/percent)), random_state=0).fit(listFlat)
