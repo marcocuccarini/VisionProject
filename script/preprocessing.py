@@ -150,6 +150,31 @@ class Preprocessing:
 
 
 
+    def remove_class(self, dictClass, filtered):
+
+        dictIntraClassSSE.values()
+        list1=[]
+        list2=[]
+        for j in dictIntraClassSSE.keys():
+            list2.append(dictIntraClassSSE[j])
+            list1.append(j)
+
+            list1, list2 = zip(*sorted(zip(list1, list2)))
+
+            lis=[]
+
+        for i in range(10,25):
+            lis.append(list2[i])
+
+        for i in lis:
+            del filtered[i]
+
+        return filtered
+
+
+
+
+
 
 
 
