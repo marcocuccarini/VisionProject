@@ -141,7 +141,7 @@ class Preprocessing:
     def SSE(self, dictFlat):
         dictSSE={}
         for j in dictFlat.keys():
-            listFlat=dictFlat
+            listFlat=dictFlat[j]
             kmeans = KMeans(n_clusters=(1), random_state=0).fit(listFlat)
             dictSSE[kmeans.inertia_]=j
 
