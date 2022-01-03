@@ -156,7 +156,7 @@ class Preprocessing:
         list1=[]
         list2=[]
         for j in dictClass.keys():
-            list2.append(dictIntraClassSSE[j])
+            list2.append(dictClass[j])
             list1.append(j)
 
             list1, list2 = zip(*sorted(zip(list1, list2)))
