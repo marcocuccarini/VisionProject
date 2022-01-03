@@ -152,10 +152,10 @@ class Preprocessing:
 
     def remove_class(self, dictClass, filtered):
 
-        dictIntraClassSSE.values()
+        dictClass.values()
         list1=[]
         list2=[]
-        for j in dictIntraClassSSE.keys():
+        for j in dictClass.keys():
             list2.append(dictIntraClassSSE[j])
             list1.append(j)
 
