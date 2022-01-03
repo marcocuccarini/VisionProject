@@ -98,7 +98,7 @@ class Preprocessing:
         return dictIndex
 
     # In base all'index calcolato nel punto precedente faccio la divisione
-    def spliTestTrain(self,dictImages,dictIndex):
+    def spliTestTrain(self,setImages,dictIndex):
 
         test = {}
         images = {}
