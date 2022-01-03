@@ -102,14 +102,17 @@ class Preprocessing:
 
         test = {}
         images = {}
-        for j in dictImages.keys():
+
+
+        for j in setImages.keys():
             listTest= [] 
             listTrain = []
-            for i in range(len(dictImages[j])):
+            for i in range(len(setImages[j])):
                 if(i in dictIndex[j]):
-                    listTest.append(dictImages[j][i])
+                    listTest.append(setImages[j][i])
                 else:
-                    listTrain.append(dictImages[j][i])
+                    listTrain.append(setImages[j][i])
             test[j]=listTest
             images[j]=listTrain
+
         return (test,images)
