@@ -137,3 +137,21 @@ class Preprocessing:
             setImages[j]=listClass
         return setImages
 
+
+    def SSE(self, setImage, dictIndex):
+        dictSSE={}
+        for j in setImage.keys():
+
+            kmeans = KMeans(n_clusters=(1), random_state=0).fit(listFlat)
+            dictSSE[kmeans.inertia_]=j
+
+
+        return dictSSE
+
+
+
+
+
+
+
+
