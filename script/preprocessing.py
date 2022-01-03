@@ -116,3 +116,24 @@ class Preprocessing:
             images[j]=listTrain
 
         return (test,images)
+
+
+    def filter_image(self,setImage):
+        gaussianBlurKernel = np.array(([[1, 2, 1], [2, 4, 2], [1, 2, 1]]), np.float32)/9
+        sharpenKernel = np.array(([[0, -1, 0], [-1, 9, -1], [0, -1, 0]]), np.float32)/9
+        meanBlurKernel = np.ones((3, 3), np.float32)/9
+
+        setImages={}
+        for j in setImage.keys():
+            listClass=[]
+ 
+            for i in range(len(setImage[j])):
+    
+                filter_image=cv2.filter2D(src=setImage[j][i], kernel=meanBlurKernel, ddepth=-4)
+                listClass.append(filter_image)
+ 
+    
+    
+            setImages[j]=listClass
+        return setImages
+
