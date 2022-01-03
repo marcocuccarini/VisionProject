@@ -32,7 +32,7 @@ class Preprocessing:
             for i in range(len(setImages[j])):
                 res = cv2.resize(setImages[j][i], dsize=(h, w), interpolation=cv2.INTER_CUBIC)
                 listImage.append(res)
-            dictImages[j]=listImage
+            dictImage[j]=listImage
     
         return dictImage
     #funzione che calcola la varianza intraclass
