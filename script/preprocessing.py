@@ -159,15 +159,15 @@ class Preprocessing:
             list2.append(dictClass[j])
             list1.append(j)
 
-            list1, list2 = zip(*sorted(zip(list1, list2)))
+        list1, list2 = zip(*sorted(zip(list1, list2)))
 
-            lis=[]
+        lis=[]
 
         for i in range(10,25):
-            lis.append(list2[i])
+                lis.append(list2[i])
 
         for i in lis:
-            del filtered[i]
+                del filtered[i]
 
         return filtered
 
