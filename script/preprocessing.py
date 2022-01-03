@@ -15,10 +15,18 @@ from scipy.cluster.vq import vq
 from scipy.spatial import distance
 
 
-# La classe Vertex rappresenta i vertici di un grafo
+# La classe di preprocessing è quella che permette di fare il preprocessing
+# I dati sono arganizzati tramite dizionari, ogni dizionario ha come valore di 
+# key-value ===>   'nome classe: lista di array nxn che rappresentano le immagini
+# appartenenti a quella classe.
+
+
 class Preprocessing:
+
+
+    #Resize di tutte le immagini
     def resize(self,setImages,h,w):
-        dictImages={}
+        dictImage={}
         for j in setImages.keys():
             listImage=[]
             for i in range(len(setImages[j])):
@@ -26,19 +34,28 @@ class Preprocessing:
                 listImage.append(res)
             dictImages[j]=listImage
     
-        return dictImages
-
+        return dictImage
+    #funzione che calcola la varianza intraclass
     def intraclass_variance(self,dictImages):
         
         intraclassVar={}
         for j in dictImages.keys():
+            #For each class i calculate the Variance
             mean1 = sum(dictImages[j])/len(dictImages[j])
-            #after i calculate 
             variance = sum((dictImages[j] - mean1)**2)/(len(dictImages[j]) - 1);
             intraclassVar[sum(sum(variance))/(len(variance)**2)]=j
         return intraclassVar
 
-    def cluster(self,dictImages,percent):
+
+
+    #cluster che trova i centroidi da usare come train
+    #Prende in input la percentuale di trai i test che vogliamo avere
+    #Restituisce come output 3 dizionari:
+    # +++ dictCenter['nome_classe']= centroidi trovati per quella classe
+    # +++ dictLabel['nome_classe']= label associate ad ogni punto del cluster
+    # +++ dictFlat['nome_classe']= non mi ricordo in questo momento
+
+    def cluster(self,dictImages,percentTest):
         dictCenter={}
         dictLabel={}
         dictFlat={}
@@ -48,13 +65,17 @@ class Preprocessing:
                 result = dictImages[j][i].flatten()
                 listFlat.append(result)
  
-            kmeans = KMeans(n_clusters=(int(len(dictImages[j])/percent)), random_state=0).fit(listFlat)
+            kmeans = KMeans(n_clusters=(int(len(dictImages[j])*percent)), random_state=0).fit(listFlat)
             dictCenter[j]=kmeans.cluster_centers_
             dictLabel[j]= kmeans.labels_
             dictFlat[j]=listFlat
 
         return (dictCenter, dictLabel, dictFlat)
 
+
+    #Per ogni classe divide i il test e il train utilizzando i dizionari utilizzati prima
+    # E creo un iseme di indici che indicano il i punti più vicini ai centroidi
+    # di ogni classe 
     def ImageIndex(self,dictImages,dictCenter,dictLabel,dictFlat):
         dictIndex={}
         for j in dictImages.keys():
@@ -63,6 +84,9 @@ class Preprocessing:
                 min=math.inf
                 index=0
                 for z in range(len(dictFlat[j])):
+                    #Qui devo calcolare la distanza euclidea perchè il centrodi prodotto dalla funzione precedente 
+                    #è un punto sul piano che non corrisponde ad un punto effettivo.
+                    #Per questo per ogni cluster cerco il punto con il centroide 
                     if(dictLabel[j][z]==i):
                         dst = distance.euclidean(dictCenter[j][i], dictFlat[j][z])
                         if(dst<min):
@@ -73,8 +97,9 @@ class Preprocessing:
 
         return dictIndex
 
-
+    # In base all'index calcolato nel punto precedente faccio la divisione
     def spliTestTrain(self,dictImages,dictIndex):
+
         test = {}
         images = {}
         for j in dictImages.keys():
