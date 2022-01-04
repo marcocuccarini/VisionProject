@@ -77,7 +77,7 @@ class BagofWord():
 						
 					count = distance.euclidean(image, center[i]) 
 					listDistance.append(count)
-	        		listIndex.append(i)
+					listIndex.append(i)
 	        	listIndex, listDistance = zip(*sorted(zip(listIndex, listDistance)))
 
 
