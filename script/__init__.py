@@ -136,7 +136,7 @@ class BagofWord():
 			            histogram = np.zeros(len(centers))
 
 			            #lIndex=self.getDictIndex(img, centers)
-			            ind = self.find_index(each_feature, centers)
+			            ind = self.find_index(img, centers)
 			            for i in ind.keys():
 
 
