@@ -105,17 +105,17 @@ class BagofWord():
 
 			dictIndex={}
 			l=[]
-			for j in center:
+			for j in range(len(center)):
 
-				dictIndex[j]=l
+				dictIndex[center[j]=l
 
 
 
 			for image in img:
 
-				for c in center:
+				for c in range(len(center)):
 
-					y=dictIndex[c]
+					y=dictIndex[center[c]]
 					y.append(distance.euclidean(image, center[c]))
 					dictIndex[c]=y
 
