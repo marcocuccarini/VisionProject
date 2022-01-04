@@ -81,25 +81,15 @@ class BagofWord():
 
 				listIndex, listDistance = zip(*sorted(zip(listIndex, listDistance)))
 
+				m=10
 
+				if(len(listDistance)<10):
 
-	        	m=10
+					m = len(listDistance)
 
-	        	if(len(listDistance)<10):
+				listIndex = numList[0:m]
 
-	        		m = len(listDistance)
-
-	        	listIndex = numList[0:m]
-
-
-	        	print(listIndex)
-
-
-
-
-
-
-
+				print(listIndex)
 
 				return 1
 
