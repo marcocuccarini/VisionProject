@@ -104,10 +104,10 @@ class BagofWord():
 		def find_index(self, img, center):
 
 			dictIndex={}
-
+			l=[]
 			for j in center:
 
-				dictIndex[j]=[]
+				dictIndex[j]=l
 
 
 
@@ -115,7 +115,9 @@ class BagofWord():
 
 				for c in center:
 
-					dictIndex[c].append(distance.euclidean(image, center[c]))
+					y=dictIndex[c]
+					y.append(distance.euclidean(image, center[c]))
+					dictIndex[c]=y
 
 
 			for i in dictIndex.keys():
