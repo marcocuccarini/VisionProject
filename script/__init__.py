@@ -67,7 +67,7 @@ class BagofWord():
 		
 		#Trova la label più vicina per ogni classe:
 		#(questo momento mi è venuto in mente che si può provare a fare un pò di modifica.)
-		def find_index(self, image, center):
+		'''def find_index(self, image, center):
 				count = 0
 				ind = 0
 				for i in range(len(center)):
@@ -98,10 +98,10 @@ class BagofWord():
 
 				print(listIndex)
 
-				return ind
+				return ind'''
 
 
-		def getDictIndex(self, img, center):
+		def find_index(self, img, center):
 
 			dictIndex={}
 
@@ -128,22 +128,6 @@ class BagofWord():
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		def image_class(self, all_bovw, centers):
 			    dict_feature = {}
 			    for key,value in all_bovw.items():
@@ -152,11 +136,11 @@ class BagofWord():
 			            histogram = np.zeros(len(centers))
 
 			            lIndex=self.getDictIndex(img, centers)
+			            ind = self.find_index(each_feature, centers)
+			            for i in ind.keys():
 
 
-			             '''for each_feature in img:
-			                ind = self.find_index(each_feature, centers)
-			                histogram[ind] += 1'''
+			            	histogram[ind[i][0]] += 1
 
 			            category.append(histogram)
 			        dict_feature[key] = category
