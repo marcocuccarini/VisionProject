@@ -21,7 +21,7 @@ from .spatial_pyramid import *
 class BagofWord():
 
 	#def __init__(self):
-    
+    	# upload of data in a dictionary
 		def load_images_from_folder(self, folder):
 		    images = {}
 		    
@@ -38,7 +38,7 @@ class BagofWord():
 		        
 		    return images
 
-		    #Provare grid e random
+		    #Estraggo le sift_features
 		def sift_features(self, images):
 			    sift_vectors = {}
 			    descriptor_list = []
@@ -53,64 +53,55 @@ class BagofWord():
 			            features.append(des)
 			        sift_vectors[key] = features
 
-
-
-
-			    '''textfile = open("/content/drive/MyDrive/dataset2/descriptor_list.csv", "w")
-
-			    i=""
-			    
-			    for element in descriptor_list:
-			    	for e in element:
-			    		i+= str(e)+","
-
-			    	textfile.write(i+"/n")
-			    textfile.close()
-
-			    textfile = open("/content/drive/MyDrive/dataset2/sift_vectors.csv", "w")
-
-			    i=""
-			    for element in descriptor_list:
-			    	for e in element:
-			    		i+=str(e)+","
-			    	textfile.write(i+"/n")
-			    textfile.close()'''
-
 			    return [descriptor_list, sift_vectors]
 
-        #cerca il cetroide e lo associa al cluster
+        #restituisce i centroidi creati per la creazione 
+        # di 10 cluster (numero delle classi)
 		def kmeans(self, k, descriptor_list):
 
-				'''textfile = open("/content/drive/MyDrive/dataset2/descriptor_list.csv", "w")
-				csvreader = csv.reader(textfile)
-				rows = []
-				for row in csvreader:
-					rows.append(row)
-				print(rows)
-				file.close()'''
-
-
-
-				#descriptor_list = loadtxt('/content/drive/MyDrive/dataset2/descriptor_list.csv', delimiter=',')
 				kmeans = KMeans(n_clusters = k, n_init=10)
 				kmeans.fit(descriptor_list)
 				visual_words = kmeans.cluster_centers_ 
 				return visual_words
 
+		
+		#Trova la label più vicina per ogni classe:
+		#(questo momento mi è venuto in mente che si può provare a fare un pò di modifica.)
 		def find_index(self, image, center):
 				count = 0
 				ind = 0
+				listIndex=[]
+				listDistance=[]
 				for i in range(len(center)):
-						if(i == 0):
-								count = distance.euclidean(image, center[i]) 
-	           
-						else:
-								dist = distance.euclidean(image, center[i]) 
-	            #dist = L1_dist(image, center[i])
-								if(dist < count):
-										nd = i
-										count = dist
-				return ind
+					#qui ho fatto una piccola modifica all'algoritmo originale,
+						
+					count = distance.euclidean(image, center[i]) 
+					listDistance.append(count)
+	        		listIndex.append(i)
+
+	        	listIndex, listDistance = zip(*sorted(zip(listIndex, listDistance)))
+
+
+
+	        	m=10
+
+	        	if(len(listDistance)<10):
+
+	        		m = len(listDistance)
+
+	        	listIndex = numList[0:m]
+
+
+	        	print(listIndex)
+
+
+
+
+
+
+
+
+				return 1
 
 		def image_class(self, all_bovw, centers):
 			    dict_feature = {}
