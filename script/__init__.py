@@ -107,7 +107,7 @@ class BagofWord():
 			l=[]
 			for j in range(len(center)):
 
-				dictIndex[center[j]=l
+				dictIndex[center[j]]=l
 
 
 
