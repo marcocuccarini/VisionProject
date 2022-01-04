@@ -70,14 +70,21 @@ class BagofWord():
 		def find_index(self, image, center):
 				count = 0
 				ind = 0
-				listIndex=[]
-				listDistance=[]
 				for i in range(len(center)):
-					#qui ho fatto una piccola modifica all'algoritmo originale,
-						
-					count = distance.euclidean(image, center[i]) 
-					listDistance.append(count)
-					listIndex.append(i)
+						if(i == 0):
+								count = distance.euclidean(image, center[i]) 
+	           
+						else:
+								dist = distance.euclidean(image, center[i]) 
+								
+
+
+
+								if(dist < count):
+										nd = i
+										count = dist
+
+
 
 				listIndex, listDistance = zip(*sorted(zip(listIndex, listDistance)))
 
@@ -87,11 +94,55 @@ class BagofWord():
 
 					m = len(listDistance)
 
-				listIndex = numList[0:m]
+				listIndex = listIndex[0:m]
 
 				print(listIndex)
 
-				return 1
+				return ind
+
+
+		def getDictIndex(self, img, center):
+
+			dictIndex={}
+
+			for j in center:
+
+				dictIndex[j]=[]
+
+
+
+			for image in img:
+
+				for c in center:
+
+					dictIndex[c].append(distance.euclidean(image, center[c]))
+
+
+			for i in dictIndex.keys():
+
+				dictIndex[c]=dictIndex[c].sort()
+
+
+			return dictIndex
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		def image_class(self, all_bovw, centers):
 			    dict_feature = {}
@@ -99,9 +150,14 @@ class BagofWord():
 			        category = []
 			        for img in value:
 			            histogram = np.zeros(len(centers))
-			            for each_feature in img:
+
+			            lIndex=self.getDictIndex(img, centers)
+
+
+			             '''for each_feature in img:
 			                ind = self.find_index(each_feature, centers)
-			                histogram[ind] += 1
+			                histogram[ind] += 1'''
+
 			            category.append(histogram)
 			        dict_feature[key] = category
 			    return dict_feature
