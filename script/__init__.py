@@ -145,7 +145,7 @@ class BagofWord():
 
 			            #lIndex=self.getDictIndex(img, centers)
 			            	ind = self.find_index(img, centers)
-			            	histogram[ind[i][0]] += 1
+			            	histogram[ind] += 1
 
 
 			            category.append(histogram)
