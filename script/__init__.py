@@ -105,7 +105,11 @@ class BagofWord():
 
 			dictIndex={}
 			l=[]
+
+			print(center)
 			for j in range(len(center)):
+
+
 
 				dictIndex[center[j]]=l
 
