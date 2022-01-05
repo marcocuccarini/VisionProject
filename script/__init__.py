@@ -106,7 +106,7 @@ class BagofWord():
 			dictIndex={}
 			l=[]
 
-			print(center)
+			
 			for c in range(len(center)):
 
 
@@ -143,6 +143,9 @@ class BagofWord():
 
 			            #lIndex=self.getDictIndex(img, centers)
 			            ind = self.find_index(img, centers)
+
+			            print(ind)
+
 			            for i in ind.keys():
 
 
