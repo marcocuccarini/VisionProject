@@ -107,11 +107,11 @@ class BagofWord():
 			l=[]
 
 			print(center)
-			for j in range(len(center)):
+			for c in range(len(center)):
 
 
 
-				dictIndex[center[j]]=l
+				dictIndex[c]=l
 
 
 
@@ -119,14 +119,14 @@ class BagofWord():
 
 				for c in range(len(center)):
 
-					y=dictIndex[center[c]]
+					y=dictIndex[c]
 					y.append(distance.euclidean(image, center[c]))
 					dictIndex[c]=y
 
 
 			for i in dictIndex.keys():
 
-				dictIndex[c]=dictIndex[c].sort()
+				dictIndex[i]=dictIndex[i].sort()
 
 
 			return dictIndex
