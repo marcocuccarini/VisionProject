@@ -67,7 +67,7 @@ class BagofWord():
 		
 		#Trova la label più vicina per ogni classe:
 		#(questo momento mi è venuto in mente che si può provare a fare un pò di modifica.)
-		'''def find_index(self, image, center):
+		def find_index(self, image, center):
 				count = 0
 				ind = 0
 				for i in range(len(center)):
@@ -98,10 +98,10 @@ class BagofWord():
 
 				print(listIndex)
 
-				return ind'''
+				return ind
 
 
-		def find_index(self, img, center):
+		'''def find_index(self, img, center):
 
 			dictIndex={}
 			l=[]
@@ -129,7 +129,7 @@ class BagofWord():
 				dictIndex[i]=dictIndex[i].sort()
 
 
-			return dictIndex
+			return dictIndex'''
 
 
 
