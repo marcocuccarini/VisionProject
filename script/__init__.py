@@ -134,7 +134,7 @@ class BagofWord():
 			            for each_features in img:
 
 			            #lIndex=self.getDictIndex(img, centers)
-			            	ind = self.find_index(img, centers)
+			            	ind = self.find_index(each_features, centers)
 			            	histogram[ind] += 1
 
 
