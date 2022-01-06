@@ -72,10 +72,12 @@ class BagofWord():
 				ind = 0
 				for i in range(len(center)):
 						if(i == 0):
-								count = distance.euclidean(image, center[i]) 
+								count = distance.euclidean(image, center[i])
+								#count = L1_dist(image, center[i])
 	           
 						else:
-								dist = distance.euclidean(image, center[i]) 
+								dist = distance.euclidean(image, center[i])
+								#dist = L1_dist(image, center[i])
 								
 
 
@@ -85,18 +87,6 @@ class BagofWord():
 										count = dist
 
 
-
-				listIndex, listDistance = zip(*sorted(zip(listIndex, listDistance)))
-
-				m=10
-
-				if(len(listDistance)<10):
-
-					m = len(listDistance)
-
-				listIndex = listIndex[0:m]
-
-				print(listIndex)
 
 				return ind
 
