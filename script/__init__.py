@@ -46,11 +46,25 @@ class BagofWord():
 			for key,value in images.items():
 				features = []
 				for img in value:
-					kp, des = sift.detectAndCompute(img,None)
+					W = img.shape[1]
+	    			H = img.shape[0]   
+	    			h = []
+	    			for l in range(L+1):
+	        			w_step = math.floor(W/(2**l))
+	        			h_step = math.floor(H/(2**l))
+	        			x, y = 0, 0
+	        			for i in range(1,2**l + 1):
+	            			x = 0
+	            			for j in range(1, 2**l + 1):
+								kp, des = sift.detectAndCompute(img[y:y+h_step, x:x+w_step],None)
 			           
 			            
-					descriptor_list.extend(des)
-					features.append(des)
+								descriptor_list.extend(des)
+								features.append(des)
+								x = x + w_step
+	            			y = y + h_step
+
+
 				sift_vectors[key] = features
 			return [descriptor_list, sift_vectors]
 
