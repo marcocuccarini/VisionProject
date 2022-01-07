@@ -40,20 +40,19 @@ class BagofWord():
 
 		    #Estraggo le sift_features
 		def sift_features(self, images):
-			    sift_vectors = {}
-			    descriptor_list = []
-			    sift = cv2.SIFT_create()
-			    for key,value in images.items():
-			        features = []
-			        for img in value:
-			            kp, des = sift.detectAndCompute(img,None)
+			sift_vectors = {}
+			descriptor_list = []
+			sift = cv2.SIFT_create()
+			for key,value in images.items():
+				features = []
+				for img in value:
+					kp, des = sift.detectAndCompute(img,None)
 			           
 			            
-			            descriptor_list.extend(des)
-			            features.append(des)
-			        sift_vectors[key] = features
-
-			    return [descriptor_list, sift_vectors]
+					descriptor_list.extend(des)
+					features.append(des)
+				sift_vectors[key] = features
+			return [descriptor_list, sift_vectors]
 
         #restituisce i centroidi creati per la creazione 
         # di 10 cluster (numero delle classi)
