@@ -58,7 +58,7 @@ class BagofWord():
 							for j in range(1, 2**l + 1):
 								kp, des = sift.detectAndCompute(img[y:y+h_step, x:x+w_step],None)
 
-								if(not(des==None)):			           
+								if not(des is None):		           
 			            
 									descriptor_list.extend(des)
 
