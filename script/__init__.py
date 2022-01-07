@@ -47,8 +47,8 @@ class BagofWord():
 				features = []
 				for img in value:
 					W = img.shape[1]
-	    			H = img.shape[0]
-	    			h = []
+					H = img.shape[0]
+					h = []
 	    			for l in range(L+1):
 	        			w_step = math.floor(W/(2**l))
 	        			h_step = math.floor(H/(2**l))
