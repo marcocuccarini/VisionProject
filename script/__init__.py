@@ -15,7 +15,7 @@ from .graph import *
 from .preprocessing import *
 from .input_data import *
 from .utility import *
-from .spatial_pyramid import *
+#from .spatial_pyramid import *
 
 
 class BagofWord():
