@@ -59,7 +59,8 @@ class BagofWord():
 								kp, des = sift.detectAndCompute(img[y:y+h_step, x:x+w_step],None)
 			           
 			            
-								descriptor_list.append(des)
+								descriptor_list.extend(des)
+
 								features.append(des)
 								x = x + w_step
 							y = y + h_step
