@@ -62,7 +62,7 @@ class BagofWord():
 								descriptor_list.extend(des)
 								features.append(des)
 								x = x + w_step
-	            			y = y + h_step
+							y = y + h_step
 
 
 				sift_vectors[key] = features
