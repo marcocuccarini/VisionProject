@@ -65,7 +65,7 @@ class Preprocessing:
                 result = dictImages[j][i].flatten()
                 listFlat.append(result)
  
-            kmeans = KMeans(n_clusters=(int(len(dictImages[j])*percentTest)), random_state=0).fit(listFlat)
+            kmeans = KMeans(n_clusters=(int(len(dictImages[j])*percentTest)+1), random_state=0).fit(listFlat)
             dictCenter[j]=kmeans.cluster_centers_
             dictLabel[j]= kmeans.labels_
             dictFlat[j]=listFlat
