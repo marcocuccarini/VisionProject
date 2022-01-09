@@ -150,7 +150,7 @@ class Preprocessing:
 
 
 
-    def remove_class(self, dictClass, filtered):
+    def remove_class(self, dictClass, filtered, nClass):
 
         dictClass.values()
         list1=[]
@@ -163,7 +163,7 @@ class Preprocessing:
 
         lis=[]
 
-        for i in range(10,25):
+        for i in range(nClass,25):
                 lis.append(list2[i])
 
         for i in lis:
