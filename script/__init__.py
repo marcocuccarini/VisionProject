@@ -39,7 +39,7 @@ class BagofWord():
 		    return images
 
 		    #Estraggo le sift_features
-		def sift_features(self, images, L):
+		def sift_features_spatial(self, images, L):
 			sift_vectors = {}
 			descriptor_list = []
 			sift = cv2.SIFT_create()
@@ -65,6 +65,27 @@ class BagofWord():
 									features.append(des)
 								x = x + w_step
 							y = y + h_step
+
+
+				sift_vectors[key] = features
+			return [descriptor_list, sift_vectors]
+
+
+		def sift_features(self, images):
+			sift_vectors = {}
+			descriptor_list = []
+			sift = cv2.SIFT_create()
+			for key,value in images.items():
+				features = []
+
+				for img in value:
+				
+					kp, des = sift.detectAndCompute(img,None)
+
+					descriptor_list.extend(des)
+
+					features.append(des)
+								
 
 
 				sift_vectors[key] = features
