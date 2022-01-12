@@ -119,7 +119,7 @@ class BagofWord():
 
 
 								if(dist < count):
-										nd = i
+										ind = i
 										count = dist
 
 
