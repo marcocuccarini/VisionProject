@@ -31,7 +31,7 @@ class BagofWord():
 		        for cat in os.listdir(path):
 		        	#load each image with a gray scale 
 		            img = cv2.imread(path + "/" + cat, 0)
-		            img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+		            #img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 		            if img is not None:
 		                category.append(img)
 		        images[filename] = category
