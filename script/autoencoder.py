@@ -1,6 +1,8 @@
 import sys
 sys.path.append('/home/nbuser/library/')
 import pandas as pd
+from keras.models import Sequential
+
 
 
 
@@ -35,6 +37,7 @@ class Autoencoder():
   		model.add(UpSampling2D((2, 2),name='Decoding_Upsamping2D_5'))
   		model.add(Conv2D(3, kernel_size=(3, 3), padding='same',activation='sigmoid',name='Decoding_Output'))
 
+  		
   		return model
 
 	
