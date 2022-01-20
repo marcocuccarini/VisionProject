@@ -8,7 +8,7 @@ class Autoencoder():
 
 
 	#Function that get the file with all the classes sorted using the main age ((StartYear,EndYear)\2)
-	def encoder_decoder_model():
+	def encoder_decoder_model(self):
   #Encoder 
   		model = Sequential(name='Convolutional_AutoEncoder_Model')
   		model.add(Conv2D(64, kernel_size=(3, 3),activation='relu',input_shape=(224, 224, 3),padding='same', name='Encoding_Conv2D_1'))
@@ -36,34 +36,6 @@ class Autoencoder():
   		model.add(Conv2D(3, kernel_size=(3, 3), padding='same',activation='sigmoid',name='Decoding_Output'))
 
   		return model
-    
-
-
-
-
-	def spatial_pyramid_matching(image, descriptor, codebook, level):
-	    pyramid = []
-	    if level == 0:
-	        pyramid += build_spatial_pyramid(image, descriptor, level=0)
-	        code = [input_vector_encoder(crop, codebook) for crop in pyramid]
-	        return np.asarray(code).flatten()
-	    if level == 1:
-	        pyramid += build_spatial_pyramid(image, descriptor, level=0)
-	        pyramid += build_spatial_pyramid(image, descriptor, level=1)
-	        code = [input_vector_encoder(crop, codebook) for crop in pyramid]
-	        code_level_0 = 0.5 * np.asarray(code[0]).flatten()
-	        code_level_1 = 0.5 * np.asarray(code[1:]).flatten()
-	        return np.concatenate((code_level_0, code_level_1))
-	    if level == 2:
-	        pyramid += build_spatial_pyramid(image, descriptor, level=0)
-	        pyramid += build_spatial_pyramid(image, descriptor, level=1)
-	        pyramid += build_spatial_pyramid(image, descriptor, level=2)
-	        code = [input_vector_encoder(crop, codebook) for crop in pyramid]
-	        code_level_0 = 0.25 * np.asarray(code[0]).flatten()
-	        code_level_1 = 0.25 * np.asarray(code[1:5]).flatten()
-	        code_level_2 = 0.5 * np.asarray(code[5:]).flatten()
-	        return np.concatenate((code_level_0, code_level_1, code_level_2))
-		
 
 	
 
