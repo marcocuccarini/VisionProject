@@ -34,7 +34,8 @@ class Autoencoder():
   		model.add(Conv2D(64, kernel_size=(3, 3), activation='relu', kernel_regularizer = tf.keras.regularizers.L2(0.001), padding='same',name='Decoding_Conv2D_5'))
   		model.add(UpSampling2D((2, 2),name='Decoding_Upsamping2D_5'))
   		model.add(Conv2D(3, kernel_size=(3, 3), padding='same',activation='sigmoid',name='Decoding_Output'))
-  	return model
+
+  		return model
     
 
 
