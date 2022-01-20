@@ -173,6 +173,23 @@ class Preprocessing:
 
 
 
+    def order_class(self, dictClass, filtered, nClass):
+
+        dictClass.values()
+        list1=[]
+        list2=[]
+        for j in dictClass.keys():
+            list2.append(dictClass[j])
+            list1.append(j)
+
+        list1, list2 = zip(*sorted(zip(list1, list2)))
+
+        
+
+        return list2
+
+
+
 
 
 
