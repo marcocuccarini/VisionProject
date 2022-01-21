@@ -186,7 +186,7 @@ class Preprocessing:
 
 
 
-    def remove_class(self, dictClass, dictExtraClass filtered, nClass):
+    def remove_class(self, dictClass, dictExtraClass, filtered, nClass):
 
         maxIntra=max(dictClass.keys())
         maxExtra=max(dictExtraClass.keys())
