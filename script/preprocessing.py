@@ -198,6 +198,9 @@ class Preprocessing:
 
         list1, list2 = zip(*sorted(zip(list1, list2)))
 
+
+        print(list1)
+
         lis=[]
         for i in range(nClass,25):
                 lis.append(list2[i])
