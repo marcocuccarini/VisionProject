@@ -168,7 +168,7 @@ class Preprocessing:
 
             for i in dictCentroid.keys():
 
-                dst += distance.euclidean(dictCenter[j], dictFlat[i])
+                dst += distance.euclidean(dictCentroid[j], dictCentroid[i])
 
             dictMainDistance[dst/len(dictCentroid.keys())]=j
 
