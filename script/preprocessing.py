@@ -186,13 +186,14 @@ class Preprocessing:
 
 
 
-    def remove_class(self, dictClass, filtered, nClass):
+    def remove_class(self, dictClass, dictExtraClass filtered, nClass):
 
-        dictClass.values()
+        maxIntra=max(dictClass.keys())
+        maxExtra=max(dictExtraClass.keys())
         list1=[]
         list2=[]
         for j in dictClass.keys():
-            list2.append(dictClass[j])
+            list2.append((dictClass[j]/maxIntra)-(dictExtraClass[j]/maxExtra))
             list1.append(j)
 
         list1, list2 = zip(*sorted(zip(list1, list2)))
