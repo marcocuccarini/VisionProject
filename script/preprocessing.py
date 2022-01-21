@@ -192,17 +192,32 @@ class Preprocessing:
         maxExtra=max(dictExtraClass.keys())
         list1=[]
         list2=[]
+        list3=[]
+        list4=[]
         for j in dictClass.keys():
-            list2.append(dictClass[j])
-            list1.append((j/maxExtra)-(j/maxIntra))
+            list3.append(dictClass[j])
+            list4.append((j/maxIntra))
+
+        for j in dictExtraClass.keys():
+            list1.append(dictExtraClass[j])
+            list2.append((j/maxExtra))
+
+
+        list4, list3 = zip(*sorted(zip(list4, list3)))
+
+        list2, list1 = zip(*sorted(zip(list2, list1)))
+
+
+        list1-=list3
+
+        print(list1)
+
+
+
 
         list1, list2 = zip(*sorted(zip(list1, list2)))
 
-
-        print(list1)
-        print(list2)
-
-        lis=[]
+        
         for i in range(nClass,25):
                 lis.append(list2[i])
 
