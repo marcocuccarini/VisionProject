@@ -193,8 +193,8 @@ class Preprocessing:
         list1=[]
         list2=[]
         for j in dictClass.keys():
-            list2.append((dictClass[j]/maxIntra)-(dictExtraClass[j]/maxExtra))
-            list1.append(j)
+            list2.append(dictClass[j])
+            list1.append((j/maxIntra)-(j/maxExtra))
 
         list1, list2 = zip(*sorted(zip(list1, list2)))
 
