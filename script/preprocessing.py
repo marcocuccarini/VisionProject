@@ -202,24 +202,28 @@ class Preprocessing:
             list1.append(dictExtraClass[j])
             list2.append((j/maxExtra))
 
+        listN=[]
+        listV=[]
+        for i in range(len(list1)):
 
-        list4, list3 = zip(*sorted(zip(list4, list3)))
+            for j in range(len(list3)):
 
-        list2, list1 = zip(*sorted(zip(list2, list1)))
-
-
-        list1-=list3
-
-        print(list1)
+                if(list1[i]==list3[j]):
 
 
+                    listN.append(list1[i])
+                    listV.append(list2[i]-list4[j])
+
+        
 
 
-        list1, list2 = zip(*sorted(zip(list1, list2)))
+
+
+        listV, listN = zip(*sorted(zip(listV, listN)))
 
         
         for i in range(nClass,25):
-                lis.append(list2[i])
+                lis.append(listN[i])
 
         for i in lis:
                 del filtered[i]
