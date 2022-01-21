@@ -204,6 +204,7 @@ class Preprocessing:
 
         listN=[]
         listV=[]
+        lis=[]
         for i in range(len(list1)):
 
             for j in range(len(list3)):
