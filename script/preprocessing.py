@@ -200,6 +200,7 @@ class Preprocessing:
 
 
         print(list1)
+        print(list2)
 
         lis=[]
         for i in range(nClass,25):
