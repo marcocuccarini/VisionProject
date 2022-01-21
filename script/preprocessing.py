@@ -140,13 +140,49 @@ class Preprocessing:
 
     def SSE(self, dictFlat):
         dictSSE={}
+        dictCentroid={}
+
+
         for j in dictFlat.keys():
             listFlat=dictFlat[j]
             kmeans = KMeans(n_clusters=(1), random_state=0).fit(listFlat)
             dictSSE[kmeans.inertia_]=j
 
+            dictCentroid[j]=kmeans.cluster_centers_[0]
 
-        return dictSSE
+
+        return (dictSSE, dictCentroid)
+
+
+
+    def distanceCenters(self, dictCentroid):
+
+
+        dictMainDistance={}
+
+
+
+        for j in dictCentroid.keys():
+
+            dst=0
+
+            for i in dictCentroid.keys():
+
+                dst += distance.euclidean(dictCenter[j], dictFlat[i])
+
+            dictMainDistance[dst/len(dictCentroid.keys())]=j
+
+
+        return dictMainDistance
+
+
+
+
+
+
+
+
+
 
 
 
