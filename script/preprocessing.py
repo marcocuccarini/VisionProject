@@ -146,7 +146,7 @@ class Preprocessing:
         for j in dictFlat.keys():
             listFlat=dictFlat[j]
             kmeans = KMeans(n_clusters=(1), random_state=0).fit(listFlat)
-            dictSSE[kmeans.inertia_]=j
+            dictSSE[kmeans.inertia_/len(listFlat)]=j
 
             dictCentroid[j]=kmeans.cluster_centers_[0]
 
