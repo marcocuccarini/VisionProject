@@ -71,10 +71,10 @@ class BagofWord():
 			return [descriptor_list, sift_vectors]
 
 
-		def sift_features(self, images, a, b, c):
+		def sift_features(self, images):
 			sift_vectors = {}
 			descriptor_list = []
-			sift = cv2.SIFT_create(nOctaveLayers = a, contrastThreshold = b, edgeThreshold = c)
+			sift = cv2.SIFT_create()
 			for key,value in images.items():
 				features = []
 
