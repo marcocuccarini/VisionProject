@@ -170,7 +170,7 @@ class Preprocessing:
 
                 dst += distance.euclidean(dictCentroid[j], dictCentroid[i])
 
-            dictMainDistance[dst/len(dictCentroid.keys())]=j
+            dictMainDistance[dst]=j
 
 
         return dictMainDistance
